@@ -9,7 +9,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.lib.logging.EventFileLogger;
 import team.gif.lib.logging.TelemetryFileLogger;
+import team.gif.robot.subsystems.LimitSwitch;
 import team.gif.robot.subsystems.drivers.Pigeon;
+
+import java.sql.Driver;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -26,6 +29,8 @@ public class Robot extends TimedRobot {
 
   public static UI ui;
 
+  public static LimitSwitch limitSwitch;
+
   public static final boolean enableSwerveDebug = false;
 
   /**
@@ -41,7 +46,7 @@ public class Robot extends TimedRobot {
     //These should be at or near the bottom
     oi = new OI();
     ui = new UI();
-
+    limitSwitch = new LimitSwitch();
   }
 
   /**
@@ -60,7 +65,7 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
 
     ui.update();
-
+    System.out.println(LimitSwitch.isOn());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
@@ -111,3 +116,4 @@ public class Robot extends TimedRobot {
   @Override
   public void simulationPeriodic() {}
 }
+
