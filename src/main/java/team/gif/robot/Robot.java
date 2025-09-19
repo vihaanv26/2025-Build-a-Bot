@@ -65,7 +65,7 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
 
     ui.update();
-    System.out.println(LimitSwitch.isOn());
+    System.out.println("LimitSwitch is on, True or False: " + LimitSwitch.isOn());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
