@@ -47,6 +47,7 @@ public class Robot extends TimedRobot {
     oi = new OI();
     ui = new UI();
     limitSwitch = new LimitSwitch();
+    pigeon = new Pigeon(RobotMap.PIGEON_ID);
   }
 
   /**
@@ -66,6 +67,7 @@ public class Robot extends TimedRobot {
 
     ui.update();
     System.out.println("LimitSwitch is on, True or False: " + LimitSwitch.isOn());
+    System.out.println("Pigeon Heading: " + pigeon.getHeading());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
