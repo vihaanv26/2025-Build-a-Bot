@@ -4,8 +4,13 @@
 
 package team.gif.robot;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import team.gif.robot.commands.MotorForward;
+import team.gif.robot.commands.MotorJoystickControl;
+import team.gif.robot.commands.MotorReverse;
+import team.gif.robot.subsystems.TalonMotor;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -15,10 +20,16 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
 
+    public final TalonMotor talonMotor = new TalonMotor();
+
+    public final CommandXboxController driver = new CommandXboxController(RobotMap.DRIVER_CONTROLLER_ID);
+
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
     public RobotContainer() {
         // Configure the trigger bindings
         configureBindings();
+
+        //talonMotor.setDefaultCommand(new MotorJoystickControl(talonMotor));
     }
 
     /**
@@ -31,5 +42,8 @@ public class RobotContainer {
      * joysticks}.
      */
     private void configureBindings() {
+
+        driver.x().whileTrue(new MotorForward(talonMotor));
+        driver.b().whileTrue(new MotorReverse(talonMotor));
     }
 }

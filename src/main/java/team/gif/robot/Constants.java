@@ -13,6 +13,8 @@ package team.gif.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-
-
+    public static final double MOTOR_FORWARD_SPEED = 0.2; // 20% power
+    public static final double MOTOR_REVERSE_SPEED = -0.2; // -20% power
+    public static final double SPARKMAX_VOLTAGE = 2.5;
+    public static final double SPARKMAX_TARGET_RPM = 60; // Default
 }

@@ -48,7 +48,10 @@ public class Robot extends TimedRobot {
     ui = new UI();
     limitSwitch = new LimitSwitch();
     pigeon = new Pigeon(RobotMap.PIGEON_ID);
+
+    pigeon.addToShuffleboard("Diagnostics ", "Pigeon Compass");
   }
+
 
   /**
    * This function is called every 20 ms, no matter the mode. Use this for items like diagnostics

@@ -1,6 +1,7 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import team.gif.robot.subsystems.LimitSwitch;
 
 public class UI {
     /**
@@ -12,9 +13,9 @@ public class UI {
      *  After dashboard loads for the first time, manually move items from network table onto respective dashboard tab
      *  and save file as "YYYY elastic-layout.json"
      */
-    public UI() {
-        
-    }
+    public UI() {}
+
+
 
     /**
      * Widgets which are updated periodically should be placed here
@@ -25,5 +26,6 @@ public class UI {
     public void update() {
         //Example
         //SmartDashboard.putNumber("Climber Position", Robot.elevator.getPosition())
+        SmartDashboard.putBoolean("Limit Switch Pressed ", LimitSwitch.isOn());
     }
 }
