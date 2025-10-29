@@ -1,17 +1,14 @@
 package team.gif.robot;
 
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.GetFPGATimestamp;
-import team.gif.robot.commands.GetFPGATimestamp;
+import team.gif.robot.commands.MotorForward;
 import team.gif.robot.commands.MotorJoystickControl;
+import team.gif.robot.commands.MotorReverse;
 import team.gif.robot.commands.SparkMAXVoltageVoltageCommand;
 import team.gif.robot.subsystems.SparkMAXMotor;
 import team.gif.robot.subsystems.TalonMotor;
-import team.gif.robot.commands.MotorForward;
-import team.gif.robot.commands.MotorReverse;
 
 
 public class OI {
@@ -103,10 +100,9 @@ public class OI {
          *   aX.onTrue(new PrintCommand("aX"));
          */
         dA.onTrue(new GetFPGATimestamp());
-        dX.whileTrue(new MotorForward(talonMotor));
-        dB.whileTrue(new MotorReverse(talonMotor));
+        dX.whileTrue(new MotorForward());
+        dB.whileTrue(new MotorReverse());
         dY.whileTrue(new SparkMAXVoltageVoltageCommand(sparkMotor));
-        talonMotor.setDefaultCommand(new MotorJoystickControl(talonMotor, driver));
 
 
     }
